@@ -25,13 +25,19 @@ def index(request):
 
         else:
             auth.login(request, user)  # django封装的记录用户的登录状态
-            return HttpResponseRedirect("/manage/")
+            return HttpResponseRedirect("/project/")
 
 
-# 管理页面
+# 项目管理页面
 @login_required
-def manage(request):
-    return render(request, "manage.html")
+def project(request):
+    return render(request, "project.html")
+
+
+# 模块管理页面
+@login_required
+def module(request):
+    return render(request, "module.html")
 
 
 # 退出登录
