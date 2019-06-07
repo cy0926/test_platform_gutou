@@ -1,4 +1,6 @@
 ### MYSQL 配置
+
+
 参考：https://docs.djangoproject.com/en/2.1/ref/databases/
 1、先需要有一个MySQL数据库，可以单独安装，也可以使用WampServer的集成环境
   -->WampServer包含了apache,phpAdmin,mysql

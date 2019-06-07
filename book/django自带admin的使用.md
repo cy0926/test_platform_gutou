@@ -1,4 +1,5 @@
 ### django自带admin的使用
+
 我们看把__models.py__中创建的表映射到admin后台进行管理
 ```python
 from user_app.models import Project
