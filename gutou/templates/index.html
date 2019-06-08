@@ -17,9 +17,10 @@
         </div>
         <button class="btn btn-lg btn-primary btn-block" style="margin-top: 15px;"
                 type="submit">登录</button>
+        {% csrf_token %}
       </form>
 
     </div>
-  {% csrf_token %}
+
 
 {% endblock %}
