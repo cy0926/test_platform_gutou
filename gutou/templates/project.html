@@ -106,7 +106,7 @@
                   </button>
                   <button type="submit" class="btn btn-primary"
                     onclick="window.location.href='/project/'">
-                    返回
+                    取消
                   </button>
                   {% csrf_token %}
                 </form>
@@ -121,8 +121,20 @@
                   <button type="submit" class="btn btn-primary">
                     保存
                   </button>
+                   <button type="submit" class="btn btn-primary"
+                    onclick="window.location.href='/project/'">
+                    取消
+                  </button>
                   {% csrf_token %}
                 </form>
+
+            {% endif %}
+
+            <!--这是错误提示-->
+            {% if type == "error" %}
+              <h4 style="padding-left: 200px;">
+                 {{ error }}
+              </h4>
 
             {% endif %}
           </div>

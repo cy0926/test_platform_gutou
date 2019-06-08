@@ -62,11 +62,16 @@ def edit_project(request, pid):
                                                         "form": form,
                                                         "id": pid})
         except:
-            return HttpResponse("待编辑的项目不存在")
+            # return HttpResponse("待编辑的项目不存在")
+            return render(request, "project.html", {"error": "待编辑的项目不存在",
+                                                    "type": "error"})
     if request.method == "POST":
         form = ProjectForm(request.POST)
         if form.is_valid():
             p = Project.objects.get(id=pid)
+            """
+              将form表单新的值，赋值给p.name, p.describe等
+            """
             p.name = form.cleaned_data["name"]
             p.describe = form.cleaned_data["describe"]
             p.status = form.cleaned_data["status"]
@@ -81,4 +86,6 @@ def delete_project(request, pid):
             Project.objects.get(id=pid).delete()
             return HttpResponseRedirect('/project/')
     except:
-        return HttpResponse("待删除的项目不存在")
+        # return HttpResponse("待删除的项目不存在")
+        return render(request, "project.html", {"error": "待删除的项目不存在",
+                                                "type": "error"})

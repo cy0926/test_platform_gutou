@@ -32,8 +32,11 @@ urlpatterns = [
     path('project/delete_project/<int:pid>/', project_views.delete_project),
 
 
-    # 模块相关
+    # 模块相关x`
     path('module/', module_views.module),
+    path('module/add_module/', module_views.add_module),
+    path('module/edit_module/<int:mid>/', module_views.edit_module),
+    path('module/delete_module/<int:mid>/', module_views.delete_module),
 
 
 
