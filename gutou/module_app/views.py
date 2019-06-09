@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from user_app.models.module import Module
-from user_app.forms import ModuleForm
+from django.http import HttpResponseRedirect
+from module_app.models import Module
+from module_app.forms import ModuleForm
 
 
 @login_required
@@ -48,7 +48,6 @@ def edit_module(request, mid):
     :return:
     """
     if request.method == "GET":
-        print("pid____", mid)
         try:
             if mid:
                 m = Module.objects.get(id=mid)
@@ -74,7 +73,7 @@ def delete_module(request, mid):
     """
     这是删除模块功能
     :param request:
-    :param pid:
+    :param mid:
     :return:
     """
     try:

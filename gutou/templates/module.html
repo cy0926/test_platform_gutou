@@ -106,13 +106,9 @@
             <h4 class="sub-header">编辑模块</h4>
                 <form action="/module/edit_module/{{ id }}/" method="post">
                     {{ form.as_p }}
-                  <button type="submit" class="btn btn-primary">
-                    保存
-                  </button>
+                  <button type="submit" class="btn btn-primary">保存</button>
                   <button type="submit" class="btn btn-primary"
-                    onclick="window.location.href='/module/'">
-                    取消
-                  </button>
+                    onclick="window.location.href='/module/'">取消</button>
                   {% csrf_token %}
                 </form>
           {% endif %}

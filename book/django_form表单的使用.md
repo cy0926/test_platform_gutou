@@ -62,8 +62,9 @@ def add_project(request):
     :return:
     """
     if request.method == "POST":
+         """request.POST,获取post请求的内容，并放入给ProjectForm表单"""
         form = ProjectForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():  # 判断form表单的所有值是否都是有效的
             name = form.cleaned_data['name']
             describe = form.cleaned_data['describe']
             status = form.cleaned_data['status']
