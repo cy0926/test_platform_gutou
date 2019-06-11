@@ -5,7 +5,7 @@ $ cd 到 想要创建django项目的目录下
 # 创建项目
 $ django-admin startproject xxxx
 
-# 创建引用
+# 创建应用
 $ cd xxxx
 $ python manage.py startapp xxxx
 
