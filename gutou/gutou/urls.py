@@ -21,11 +21,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('index/', views.index),
-    path('project/', views.project),
+    path('project/', views.project_manage),
     path('accounts/login/', views.index),
 
 
-    path('module/', views.module),
+    path('module/', views.module_manage),
 
 
 

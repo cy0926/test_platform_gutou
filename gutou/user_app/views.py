@@ -30,13 +30,13 @@ def index(request):
 
 # 项目管理页面
 @login_required
-def project(request):
+def project_manage(request):
     return render(request, "project.html")
 
 
 # 模块管理页面
 @login_required
-def module(request):
+def module_manage(request):
     return render(request, "module.html")
 
 
