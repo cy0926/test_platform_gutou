@@ -20,11 +20,11 @@ from user_app.views import login_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', login_views.index),
     path('index/', login_views.index),
     path('accounts/login/', login_views.index),
     path('logout/', login_views.logout),
-
 
     # 项目相关
     path('project/', include('project_app.urls')),
