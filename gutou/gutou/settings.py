@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'user_app',
     'project_app',
     'module_app',
+    'testCase_app',
 ]
 
 MIDDLEWARE = [

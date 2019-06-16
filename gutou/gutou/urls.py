@@ -32,6 +32,9 @@ urlpatterns = [
     # 模块相关`
     path('module/', include('module_app.urls')),
 
+    # 用例相关
+    path('testCase/', include('testCase_app.urls')),
+
 
 
 
