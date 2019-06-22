@@ -61,7 +61,7 @@
 
               <div class="input-group">
                 <span class="input-group-addon">URL</span>
-                <input id="req_url" type="text" class="form-control" value="http">
+                <input id="req_url" type="text" class="form-control" value="">
               </div>
 
               <br>
@@ -73,6 +73,12 @@
                 <label class="radio-inline">
                     <input type="radio" name="req_method" id="post" value="post"> POST
                 </label>
+                <label class="radio-inline">
+                    <input type="radio" name="req_method" id="put" value="put"> PUT
+                </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="req_method" id="delete" value="delete"> DELETE
+                </label>
               </div>
 
               <div class="input-group">
@@ -83,10 +89,10 @@
               <div style="margin-top: 10px;">
                 <label>* 参数类型：</label>
                 <label class="radio-inline">
-                    <input type="radio" name="par_type" id="form" value="form" checked> form-data
+                    <input type="radio" name="param_type" id="form" value="form" checked> form-data
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="par_type" id="json" value="json"> JSON
+                    <input type="radio" name="param_type" id="json" value="json"> json
                 </label>
               </div>
 
@@ -163,10 +169,35 @@
     <script type="text/javascript">
       //触发“发送”按钮
       function sendFun() {
-          window.alert("你点击了发送按钮")
+          var url = $("#req_url").val();
+          var method =$('input[name="req_method"]:checked').val();
+          var header = $("#header").val();
+          var param_type = $('input[name="param_type"]:checked').val();
+          var parameter = $("#parameter").val();
+
+          if (url === ""){
+
+          }
+
+          $.post("/testCase/debug/",
+
+            {
+              url: url,
+              method: method,
+              header: header,
+              param_type: param_type,
+              parameter: parameter
+            },
+            function(data){
+              // $("#result").value = data.result;
+                document.querySelector("#result").value = data.result
+            });
+
+
 
       };
 
 
     </script>
+
 {%  endblock %}
