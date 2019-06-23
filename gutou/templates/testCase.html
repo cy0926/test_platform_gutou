@@ -177,6 +177,8 @@
 
           if (url === ""){
 
+              window.alert("Url不能为空")
+
           }
 
           $.post("/testCase/debug/",
@@ -192,10 +194,32 @@
               // $("#result").value = data.result;
                 document.querySelector("#result").value = data.result
             });
-
-
-
       };
+
+      //触发断言按钮
+      function  assertFun() {
+
+           var result_text = $("#result").val();
+           var assert_text = $("#assert").val();
+           var assert_type = $('input[name="assert_type"]:checked').val();
+
+           if (result_text === "" || assert_text === "") {
+               window.alert("要断言的文本不能为空");
+               return;
+           }
+
+           $.post("/testCase/test_assert/",
+             {
+                 result: result_text,
+                 assert: assert_text,
+                 assert_type: assert_type
+             },
+           function (data) {
+               window.alert("断言的结果：" + data.result)
+           });
+
+        };
+
 
 
     </script>

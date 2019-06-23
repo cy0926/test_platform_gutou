@@ -11,6 +11,11 @@ def test_case_manage(request):
 
 
 def debug(request):
+    """
+    测试用例调试
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         url = request.POST.get("url", "")
         method = request.POST.get("method", "")
@@ -57,5 +62,34 @@ def debug(request):
             result_text = result.text
 
         return JsonResponse({"result": result_text})
+    else:
+        return JsonResponse({"result": "请求方法错误"})
+
+
+def test_assert(request):
+    """
+    测试用例的断言
+    :param request:
+    :return:
+    """
+    if request.method == "POST":
+        result_text = request.POST.get("result", "")
+        assert_text = request.POST.get("assert", "")
+        assert_type = request.POST.get("assert_type", "")
+
+        if result_text == "" or assert_text == "":
+            return JsonResponse({"result": "断言的文本不能为空"})
+
+        if assert_type == "contains":
+            if assert_text not in result_text:
+                return JsonResponse({"result": "断言失败"})
+            else:
+                return JsonResponse({"result": "断言成功"})
+        if assert_type == "mathches":
+            if assert_text != result_text:
+                return JsonResponse({"result": "断言失败"})
+            else:
+                return JsonResponse({"result": "断言成功"})
+
     else:
         return JsonResponse({"result": "请求方法错误"})
